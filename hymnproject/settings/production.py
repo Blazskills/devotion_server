@@ -14,11 +14,7 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG")
 
-database_url = os.environ.get(
-    "DATABASE_URL"
-)
-
-DATABASES["default"] = dj_database_url.parse(database_url)
+DATABASES = {"default": env.db("DATABASE_URL")}
 
 # CSRF_TRUSTED_ORIGINS = ["http://localhost:8080","http://localhost:5173",]
 DOMAIN = "Devotion"
