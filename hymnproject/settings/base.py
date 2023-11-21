@@ -1,6 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
-# import os
+import os
 
 import environ
 
@@ -103,7 +103,8 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=14),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "SIGNING_KEY": env("SIGNING_KEY"),
+    # "SIGNING_KEY": env("SIGNING_KEY"),
+    "SIGNING_KEY": os.environ.get("SIGNING_KEY"),
     "AUTH_HEADER_TYPES": ("Bearer",),
     "ROTATE_REFRESH_TOKENS": True,
     "USER_ID_FIELD": "id",
