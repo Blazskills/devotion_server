@@ -1,6 +1,6 @@
 Django==3.2.19
 django-autoslug==1.9.9
-django-cors-headers==4.2.0
+django-cors-headers==4.1.0
 django-countries==7.5.1
 django-crequest==2018.5.11
 django-environ==0.11.2
