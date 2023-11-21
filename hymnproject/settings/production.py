@@ -7,7 +7,7 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 USE_X_FORWARDED_HOST = True
 
 
-SECRET_KEY = os.environ.get(
+SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
 )
 
