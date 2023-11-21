@@ -23,3 +23,4 @@ DATABASES = {"default": env.db("DATABASE_URL")}
 DOMAIN = "Devotion"
 SITE_NAME = "Devotion"
 ALLOWED_HOSTS = ["*"]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
