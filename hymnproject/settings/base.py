@@ -9,7 +9,7 @@ environ.Env.read_env()
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 
 APP_DIR = ROOT_DIR / "core_apps"
-DEBUG = env.bool("DJANGO_DEBUG", False)
+# DEBUG = env.bool("DJANGO_DEBUG", False)
 
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -82,16 +82,6 @@ SWAGGER_SETTINGS = {
     "SHOW_EXTENSIONS": True,
     "VALIDATOR_URL": None,
 }
-
-DATABASES = {"default": env.db("DATABASE_URL")}
-
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(APP_DIR, "db.sqlite3"),
-#     }
-# }
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASSES": [

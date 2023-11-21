@@ -1,6 +1,8 @@
 from .base import *  # noqa
 from .base import env
 
+
+DATABASES = {"default": env.db("DATABASE_URL")}
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
