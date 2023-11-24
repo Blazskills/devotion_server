@@ -5,11 +5,20 @@ from django.utils.translation import gettext_lazy as _
 
 
 class DevotionMonthDay(BaseModel):
-    month = models.TextField()
-    day = models.TextField()
+    month = models.TextField(db_index=True,)
+    day = models.TextField(db_index=True,
+                           error_messages={
+                               'unique_together': _("This combination of devotion month and day already exists."),
+                           },
+                           )
 
     def __str__(self):
         return f"{self.month} - {self.day}"
+
+    class Meta:
+        # Add the unique_together constraint
+        unique_together = ('month', 'day')
+        ordering = ['-month', 'day']
 
 
 class DevotionBibleReading(BaseModel):
@@ -24,7 +33,7 @@ class DevotionBibleReading(BaseModel):
             'unique_together': _("This combination of devotion month day and Bible Reading Arrangement already exists."),
         },
     )
-    bible_reading_number = models.PositiveIntegerField(blank=True, verbose_name=_("Bible Reading Number"))
+    bible_reading_number = models.PositiveIntegerField(blank=True, null=True, verbose_name=_("Bible Reading Number"))
     bible_reading = models.TextField(verbose_name=_("Bible Reading"))
     chapter = models.TextField(verbose_name=_("chapter"))
     from_verse = models.TextField(blank=True, verbose_name=_("From Verse"))

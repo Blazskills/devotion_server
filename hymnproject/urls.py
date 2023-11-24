@@ -38,7 +38,7 @@ urlpatterns = [
         include(
             [
                 # path("account/", include("core_apps.account.urls")),
-                # path("devotion/", include("core_apps.devotion.urls")),
+                path("devotion/", include("core_apps.devotion.urls")),
                 path(
                     "swagger/schema/",
                     schema_view.with_ui("swagger", cache_timeout=0),
